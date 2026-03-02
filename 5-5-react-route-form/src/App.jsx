@@ -39,11 +39,15 @@
 //
 // 1) Import router primitives from react-router-dom
 //    HINT: import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
 //
 // 2) Import your three page components
 //    HINT: import Home from "./pages/Home";
 //          import About from "./pages/About";
 //          import Registration from "./pages/Registration";
+import Home from "./pages/Home";
+         import About from "./pages/About";
+         import Registration from "./pages/Registration";
 //
 // 3) Add a simple navbar with NavLink items for "/", "/about", "/registration" inside the <div className="links">.
 //    HINT: <NavLink to="/" end className="navlink">PAGE_NAME</NavLink>
@@ -152,11 +156,20 @@ export default function App() {
         <div className="brand">🧑‍💻 Student Portal</div>
         <div className="links">
           {/*Nav links*/}
+          {<NavLink to="Route" end className="navlink">"HOME"</NavLink>}
+          {<NavLink to="/about" end className="navlink">"ABOUT"</NavLink>}
+          {<NavLink to="/registration" end className="navlink">"REGISTRATION"</NavLink>}
         </div>
       </nav>
 
       <main className="container">
         {/*Routes*/}
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/about" element={<About />} />
+    <Route path="/registration" element={<Registration />} />
+      <Route path="*" element={<h2>404 — Not Found</h2>} />
+  </Routes>
       </main>
 
       <footer className="footer">
